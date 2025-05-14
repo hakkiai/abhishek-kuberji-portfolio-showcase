@@ -37,6 +37,7 @@ const Index = () => {
             text1="I build things that look good"
             text2="and actually work."
             speed={70}
+            loopLimit={3}
           />
         </div>
       </div>

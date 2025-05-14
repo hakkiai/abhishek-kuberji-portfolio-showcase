@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -160,5 +161,27 @@ html, body {
 }
 
 .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Modern hover effect for navigation */
+.modern-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.modern-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, currentColor, transparent);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease;
+}
+
+.modern-hover:hover::after {
   width: 100%;
 }

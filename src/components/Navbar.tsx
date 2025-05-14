@@ -1,9 +1,23 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleClick = (e: React.MouseEvent, item: string) => {
     e.currentTarget.classList.add('animate-click');
@@ -14,12 +28,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="py-6 px-6 md:px-12 lg:px-16 flex justify-center">
+    <nav className={`py-6 px-6 md:px-12 lg:px-16 flex justify-center sticky top-0 z-40 transition-all duration-300 ${
+      scrolled ? 'bg-cream/80 backdrop-blur-sm shadow-sm' : ''
+    }`}>
       <ul className="flex space-x-10 md:space-x-12">
         <li>
           <Link 
             to="/" 
-            className={`nav-link text-base font-medium ${activeItem === 'about' ? 'text-black' : ''}`}
+            className={`nav-link modern-hover text-base font-medium ${activeItem === 'about' ? 'text-black' : ''}`}
             onClick={(e) => handleClick(e, 'about')}
           >
             About
@@ -28,7 +44,7 @@ const Navbar = () => {
         <li>
           <Link 
             to="/" 
-            className={`nav-link text-base font-medium ${activeItem === 'work' ? 'text-black' : ''}`}
+            className={`nav-link modern-hover text-base font-medium ${activeItem === 'work' ? 'text-black' : ''}`}
             onClick={(e) => handleClick(e, 'work')}
           >
             Work
@@ -39,7 +55,7 @@ const Navbar = () => {
             href="https://github.com/hakkiai" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="nav-link text-base font-medium"
+            className="nav-link modern-hover text-base font-medium"
             onClick={(e) => handleClick(e, 'blog')}
           >
             Blog External
@@ -48,7 +64,7 @@ const Navbar = () => {
         <li>
           <Link 
             to="/" 
-            className={`nav-link text-base font-medium ${activeItem === 'contact' ? 'text-black' : ''}`}
+            className={`nav-link modern-hover text-base font-medium ${activeItem === 'contact' ? 'text-black' : ''}`}
             onClick={(e) => handleClick(e, 'contact')}
           >
             Contact
