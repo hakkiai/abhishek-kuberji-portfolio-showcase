@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
   const handleScroll = (e: React.MouseEvent) => {
@@ -16,9 +17,13 @@ const Hero = () => {
 
   return (
     <div className="px-6 md:px-12 lg:px-16 py-24 md:py-32 max-w-7xl mx-auto">
-      <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
-        &lt;Abhishek Tripathi Kuberji /&gt;
-      </h1>
+      <div className="mb-6">
+        <TypingAnimation 
+          text1="&lt;Abhishek Tripathi Kuberji /&gt;" 
+          text2="" 
+          speed={60}
+        />
+      </div>
       
       <div className="flex items-center mb-8 hover-lift">
         <div className="h-3 w-3 bg-green-500 rounded-full mr-2"></div>

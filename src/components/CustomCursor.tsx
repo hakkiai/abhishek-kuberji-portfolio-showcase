@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const updateCursorPosition = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
+      if (!isVisible) setIsVisible(true);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -31,17 +33,20 @@ const CustomCursor = () => {
       window.removeEventListener('mousemove', updateCursorPosition);
       window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, []);
+  }, [isVisible]);
+
+  if (!isVisible) return null;
 
   return (
     <div 
-      className={`fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ${
-        isHovering ? 'scale-125 bg-white' : 'bg-black'
+      className={`fixed w-10 h-10 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ${
+        isHovering ? 'scale-150 bg-white' : 'bg-black'
       }`}
       style={{ 
         left: `${position.x}px`, 
         top: `${position.y}px`, 
-        transform: `translate(-50%, -50%) ${isHovering ? 'scale(1.25)' : ''}`,
+        transform: `translate(-50%, -50%) ${isHovering ? 'scale(1.5)' : ''}`,
+        opacity: 0.8,
       }}
     />
   );
