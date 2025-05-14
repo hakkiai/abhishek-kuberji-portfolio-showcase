@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ProjectCard from '../components/ProjectCard';
 import ContactSection from '../components/ContactSection';
+import TypingAnimation from '../components/TypingAnimation';
 
 const Index = () => {
   return (
@@ -11,14 +12,14 @@ const Index = () => {
       <Navbar />
       <Hero />
       
-      {/* Black curved section */}
+      {/* Black curved section with typing animation */}
       <div className="bg-black text-white rounded-t-[50%] pt-48 pb-16 px-6 md:px-10 mt-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            I build things that look <span className="text-gray-400">good</span>
-            <br />
-            <span className="text-gray-400">and actually</span> work.
-          </h2>
+          <TypingAnimation 
+            text1="I build things that look good"
+            text2="and actually work."
+            speed={80}
+          />
         </div>
       </div>
       
