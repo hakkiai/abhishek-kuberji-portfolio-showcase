@@ -7,11 +7,22 @@ interface TypingAnimationProps {
   speed?: number;
 }
 
-const TypingAnimation = ({ text1, text2, speed = 100 }: TypingAnimationProps) => {
+const TypingAnimation = ({ text1, text2, speed = 80 }: TypingAnimationProps) => {
   const [displayText1, setDisplayText1] = useState('');
   const [displayText2, setDisplayText2] = useState('');
   const [isTypingFirstLine, setIsTypingFirstLine] = useState(true);
+  const [showCursor, setShowCursor] = useState(true);
   
+  // Blinking cursor effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+    
+    return () => clearInterval(cursorInterval);
+  }, []);
+  
+  // Typing effect
   useEffect(() => {
     if (isTypingFirstLine) {
       if (displayText1.length < text1.length) {
@@ -33,11 +44,22 @@ const TypingAnimation = ({ text1, text2, speed = 100 }: TypingAnimationProps) =>
   }, [displayText1, displayText2, isTypingFirstLine, text1, text2, speed]);
 
   return (
-    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-      {displayText1}
-      <br />
-      {displayText2}
-    </h2>
+    <div className="relative">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+        <div className="flex items-center">
+          <span>{displayText1}</span>
+          {isTypingFirstLine && showCursor && (
+            <span className="inline-block w-[3px] h-8 bg-white ml-1"></span>
+          )}
+        </div>
+        <div className="flex items-center mt-2">
+          <span>{displayText2}</span>
+          {!isTypingFirstLine && showCursor && (
+            <span className="inline-block w-[3px] h-8 bg-white ml-1"></span>
+          )}
+        </div>
+      </h2>
+    </div>
   );
 };
 
