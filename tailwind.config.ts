@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,7 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Space Grotesk', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', 'sans-serif'],
+				sans: ['"SF Mono"', 'Menlo', 'Monaco', 'Courier', 'monospace'],
+				mono: ['"SF Mono"', 'Menlo', 'Monaco', 'Courier', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -66,8 +66,9 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				cream: '#f8f3e9',
+				cream: '#f2efe4', // Updated to match Larry Xue's background
 				darkGreen: '#4f6636',
+				codeBlue: '#8193a8',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

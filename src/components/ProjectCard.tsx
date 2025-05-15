@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Button } from '../components/ui/button';
 
 interface ProjectCardProps {
   title: string;
@@ -12,29 +11,27 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ title, description, year, github, preview }: ProjectCardProps) => {
   return (
-    <div className="bg-black text-white rounded-xl p-6 mb-4">
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-sm mb-1">{description} - {year}</p>
-      <p className="text-sm mb-4">stars: 20+</p>
+    <div className="bg-black text-white rounded-3xl p-6 mb-8 hover:transform hover:scale-[1.01] transition-all duration-300">
+      <h3 className="text-2xl font-bold mb-2">{title}</h3>
+      <p className="text-sm mb-1 opacity-70">{description} - {year}</p>
+      <p className="text-sm mb-6 opacity-70">stars: 20+</p>
       <div className="flex gap-2">
-        <Button 
-          variant="outline" 
-          className="bg-transparent text-white border border-white rounded-full px-4 py-2 text-sm"
-          asChild
+        <a 
+          href={preview} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-gray-300 text-black px-6 py-2 rounded-full text-sm font-medium"
         >
-          <a href={preview} target="_blank" rel="noopener noreferrer">
-            Preview
-          </a>
-        </Button>
-        <Button 
-          variant="outline"
-          className="bg-transparent text-white border border-white rounded-full px-4 py-2 text-sm"
-          asChild
+          Preview
+        </a>
+        <a 
+          href={github} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-gray-300 text-black px-6 py-2 rounded-full text-sm font-medium"
         >
-          <a href={github} target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        </Button>
+          GitHub
+        </a>
       </div>
     </div>
   );

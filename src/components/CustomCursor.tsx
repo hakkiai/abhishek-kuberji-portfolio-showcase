@@ -39,14 +39,14 @@ const CustomCursor = () => {
 
   return (
     <div 
-      className={`fixed w-6 h-6 rounded-full pointer-events-none z-50 transition-transform duration-150 ${
-        isHovering ? 'scale-150 bg-white mix-blend-difference' : 'bg-black'
-      }`}
+      className={`fixed w-6 h-6 rounded-full pointer-events-none z-50 transition-transform duration-150`}
       style={{ 
         left: `${position.x}px`, 
         top: `${position.y}px`, 
         transform: `translate(-50%, -50%) ${isHovering ? 'scale(1.5)' : ''}`,
-        opacity: 0.9,
+        backgroundColor: isHovering ? '#fff' : '#000',
+        mixBlendMode: isHovering ? 'difference' : 'normal',
+        opacity: 1,
       }}
     />
   );

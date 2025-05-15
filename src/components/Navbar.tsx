@@ -28,14 +28,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`py-6 px-6 md:px-12 lg:px-16 flex justify-center sticky top-0 z-40 transition-all duration-300 ${
+    <nav className={`py-6 px-6 md:px-12 lg:px-16 flex justify-start sticky top-0 z-40 transition-all duration-300 w-full ${
       scrolled ? 'bg-cream/80 backdrop-blur-sm shadow-sm' : ''
     }`}>
-      <ul className="flex space-x-10 md:space-x-12">
+      <ul className="flex space-x-10 md:space-x-12 font-mono text-black">
         <li>
           <Link 
             to="/" 
-            className={`nav-link modern-hover text-base font-medium ${activeItem === 'about' ? 'text-black' : ''}`}
+            className={`text-base font-medium ${activeItem === 'about' ? 'text-black' : ''}`}
             onClick={(e) => handleClick(e, 'about')}
           >
             About
@@ -44,7 +44,7 @@ const Navbar = () => {
         <li>
           <Link 
             to="/" 
-            className={`nav-link modern-hover text-base font-medium ${activeItem === 'work' ? 'text-black' : ''}`}
+            className={`text-base font-medium ${activeItem === 'work' ? 'text-black' : ''}`}
             onClick={(e) => handleClick(e, 'work')}
           >
             Work
@@ -55,8 +55,7 @@ const Navbar = () => {
             href="https://github.com/hakkiai" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="nav-link modern-hover text-base font-medium"
-            onClick={(e) => handleClick(e, 'blog')}
+            className="text-base font-medium"
           >
             Blog External
           </a>
@@ -64,7 +63,7 @@ const Navbar = () => {
         <li>
           <Link 
             to="/" 
-            className={`nav-link modern-hover text-base font-medium ${activeItem === 'contact' ? 'text-black' : ''}`}
+            className={`text-base font-medium ${activeItem === 'contact' ? 'text-black' : ''}`}
             onClick={(e) => handleClick(e, 'contact')}
           >
             Contact

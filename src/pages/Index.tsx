@@ -26,29 +26,26 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cream flex flex-col">
+    <div className="min-h-screen bg-cream flex flex-col w-full">
       <Navbar />
       <Hero />
       
       {/* Black curved section with typing animation */}
-      <div className="bg-black text-white rounded-t-[50%] pt-36 pb-24 px-6 md:px-12 lg:px-16 mt-12">
-        <div className="max-w-5xl mx-auto">
-          <TypingAnimation 
-            text1="I build things that look good"
-            text2="and actually work."
-            speed={70}
-            loopLimit={3}
-          />
+      <div className="bg-black text-white rounded-t-[50%] pt-36 pb-24 px-6 md:px-12 lg:px-16 mt-12 w-full">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            I build things that look good and actually work.
+          </h2>
         </div>
       </div>
       
       {/* Recent works section */}
-      <div className="bg-cream py-24 px-6 md:px-12 lg:px-16">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 hover-lift">Recent works</h2>
+      <div className="bg-cream py-24 px-6 md:px-12 lg:px-16 w-full">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-5xl md:text-6xl font-bold mb-12">Recent works</h2>
           
           <ProjectCard
-            title="Id cards generation system"
+            title="🚀 Astro Sassify Template"
             description="Web design & development"
             year="2025"
             github="https://github.com/hakkiai/id-cards-galaxy"
@@ -56,7 +53,7 @@ const Index = () => {
           />
           
           <ProjectCard
-            title="Academic dashboard" 
+            title="🛁 Astro Zen Blog" 
             description="Web design & development"
             year="2024"
             github="https://github.com/hakkiai/stellar-performance-hub"
